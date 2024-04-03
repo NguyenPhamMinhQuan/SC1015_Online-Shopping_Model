@@ -63,10 +63,13 @@ class Tetris:
             for j in range(width):
                 new_line.append(0)
             self.field.append(new_line)
-            
+
+
+        
         # setting the initial line
-        initial_blocks = [
-            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1],  # Example pattern, customize as needed
+        initial_blocks1 = [
+            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+            [1, 1, 1, 1, 0, 0, 0, 1, 1, 1], # Example pattern, customize as needed
             # Add more patterns as needed
         ]
 
@@ -76,7 +79,6 @@ class Tetris:
         # Insert the initial configuration of blocks at the bottom of the field
         for row_index, row in enumerate(initial_blocks):
             self.field[height - len(initial_blocks) + row_index] = row
-
     
     
     def new_figure(self):
