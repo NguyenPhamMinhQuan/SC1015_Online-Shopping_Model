@@ -111,9 +111,7 @@ class Tetris:
                 if i * 4 + j in self.figure.image():
                     self.field[i + self.figure.y][j + self.figure.x] = self.figure.color
         self.break_lines()
-        self.new_figure()
-        if self.intersects():
-            self.state = "gameover"
+        self.state = "gameover"
 
     def go_side(self, dx):
         old_x = self.figure.x
@@ -213,6 +211,6 @@ while not done:
         screen.blit(text_game_over1, [25, 265])
 
     pygame.display.flip()
-    done = True 
+    clock.tick(fps)
 
 pygame.quit()
