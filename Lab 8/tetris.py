@@ -96,19 +96,25 @@ class Tetris:
                         intersection = True
         return intersection
 
+
     def break_lines(self):
-        lines = 0
-        for i in range(1, self.height):
-            zeros = 0
-            for j in range(self.width):
-                if self.field[i][j] == 0:
-                    zeros += 1
-            if zeros == 0:
-                lines += 1
-                for i1 in range(i, 1, -1):
-                    for j in range(self.width):
+    lines = 0
+    for i in range(1, self.height):
+        zeros = 0
+        for j in range(self.width):
+            if self.field[i][j] == 0:
+                zeros += 1
+        if zeros == 0:
+            lines += 1
+            # Shift all rows above the cleared row downwards
+            for i1 in range(i, 0, -1):  # Changed the range to include row 0
+                for j in range(self.width):
+                    if i1 == 1:  # Skip the row with the newly added block
+                        self.field[i1][j] = 0
+                    else:
                         self.field[i1][j] = self.field[i1 - 1][j]
-        self.score += lines ** 2
+    self.score += lines ** 2
+    
 
     def go_space(self):
         while not self.intersects():
