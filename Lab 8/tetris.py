@@ -213,6 +213,6 @@ while not done:
         screen.blit(text_game_over1, [25, 265])
 
     pygame.display.flip()
-    clock.tick(fps)
+    done = True 
 
 pygame.quit()
