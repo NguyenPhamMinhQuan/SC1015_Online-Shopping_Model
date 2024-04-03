@@ -156,7 +156,8 @@ while not done:
     counter += 1
     if counter > 100000:
         counter = 0
-if counter % (fps // game.level // 2) == 0 or pressing_down:
+
+    if counter % (fps // game.level // 2) == 0 or pressing_down:
         if game.state == "start":
             game.go_down()
 
@@ -175,7 +176,7 @@ if counter % (fps // game.level // 2) == 0 or pressing_down:
             if event.key == pygame.K_SPACE:
                 game.go_space()
             if event.key == pygame.K_ESCAPE:
-                game.init(20, 10)
+                game.__init__(20, 10)
 
     if event.type == pygame.KEYUP:
             if event.key == pygame.K_DOWN:
