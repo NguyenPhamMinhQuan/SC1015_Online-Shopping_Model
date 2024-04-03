@@ -64,9 +64,9 @@ class Tetris:
                 new_line.append(0)
             self.field.append(new_line)
             
-
+        // setting the initial line
         initial_blocks = [
-            [0, 1, 0, 0, 1, 0, 0, 1, 0, 0],  # Example pattern, customize as needed
+            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1],  # Example pattern, customize as needed
             # Add more patterns as needed
         ]
 
