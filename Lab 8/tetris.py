@@ -114,6 +114,7 @@ class Tetris:
                         else:
                             self.field[i1][j] = self.field[i1 - 1][j]
         self.score += lines ** 2
+        self.figure = Figure(0,0)
     
 
     def go_space(self):
