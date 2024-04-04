@@ -55,16 +55,6 @@ class Tetris:
     
         self.height = height
         self.width = width
-        self.field = []
-        self.score = 0
-        self.state = "start"
-        for i in range(height):
-            new_line = []
-            for j in range(width):
-                new_line.append(0)
-            self.field.append(new_line)
-
-
         
         # setting the initial line
         initial_blocks = [
@@ -79,6 +69,7 @@ class Tetris:
         # Insert the initial configuration of blocks at the bottom of the field
         for row_index, row in enumerate(initial_blocks):
             self.field[height - len(initial_blocks) + row_index] = row
+
     
     
     def new_figure(self):
