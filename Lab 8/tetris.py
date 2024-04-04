@@ -58,8 +58,8 @@ class Tetris:
         
         # setting the initial line
         initial_blocks = [
-            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
-            [1, 1, 1, 1, 0, 0, 0, 1, 1, 1], # Example pattern, customize as needed
+            [1, 1, 1, 1, 1, 0, 0, 1, 1, 1],
+            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1], # Example pattern, customize as needed
             # Add more patterns as needed
         ]
 
