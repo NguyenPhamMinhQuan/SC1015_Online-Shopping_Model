@@ -168,6 +168,7 @@ class Tetris:
 # Initialize the game engine
 pygame.init()
 
-# Define some colors
+# Define some colours
 BLACK = (0, 0, 0)
-WHITE
+WHITE = (255, 255, 255)
+GRAY = (128, 128, 128)
