@@ -122,3 +122,12 @@ class Tetris:
 
     def freeze(self):
         for i in range(4):
+            for j in range(4):
+                if i * 4 + j in self.figure.image():
+                    self.field[i + self.figure.y][j + self.figure.x] = self.figure.color
+        self.break_lines()
+        if self.figure.y <= 1:
+            self.state = "gameover"
+        else:
+            self.new_figure()
+
