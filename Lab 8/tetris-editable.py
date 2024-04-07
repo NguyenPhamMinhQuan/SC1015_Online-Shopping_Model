@@ -26,13 +26,20 @@ class Figure:
         [[1, 2, 5, 6]],
     ]
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.type = random.randint(0, len(self.figures) - 1)
-        self.color = random.randint(1, len(colors) - 1)
-        self.rotation = 0
-        self.tetris_board = [[0] * width for _ in range(height)] # added
+    def __init__(self, height, width):
+        self.level = 2
+        self.score = 0
+        self.state = "start"
+        self.field = []
+        self.height = height
+        self.width = width
+        self.x = 100
+        self.y = 60
+        self.zoom = 20
+        self.figure = None
+        
+        # Initialize Tetris board
+        self.tetris_board = [[0] * width for _ in range(height)]
 
     def image(self):
         return self.figures[self.type][self.rotation]
@@ -76,7 +83,7 @@ class Tetris:
     def new_figure(self):
         self.figure = Figure(3, 0)
 
-     def intersects(self):
+    def intersects(self):
         intersection = False
         for i in range(4):
             for j in range(4):
