@@ -53,16 +53,14 @@ class Tetris:
         self.level = 2
         self.score = 0
         self.state = "start"
-        self.field = []
-        self.height = 0
-        self.width = 0
+        self.height = height
+        self.width = width
         self.x = 100
         self.y = 60
         self.zoom = 20
         self.figure = None
-    
-        self.height = height
-        self.width = width
+        # Initialize Tetris board
+        self.tetris_board = [[0] * width for _ in range(height)]
         
         # setting the initial line
         initial_blocks = [
@@ -91,7 +89,7 @@ class Tetris:
                     if i + self.figure.y > self.height - 1 or \
                             j + self.figure.x > self.width - 1 or \
                             j + self.figure.x < 0 or \
-                            self.tetris_board[i + self.figure.y][j + self.figure.x] > 0:  # Check Tetris board instead of self.field
+                            self.tetris_board[i + self.figure.y][j + self.figure.x] > 0:
                         intersection = True
         return intersection
 
@@ -132,7 +130,7 @@ class Tetris:
         for i in range(4):
             for j in range(4):
                 if i * 4 + j in self.figure.image():
-                    self.tetris_board[i + self.figure.y][j + self.figure.x] = self.figure.color  # Update Tetris board instead of self.field
+                    self.tetris_board[i + self.figure.y][j + self.figure.x] = self.figure.color
         self.break_lines()
         self.state = "gameover"
 
@@ -206,6 +204,7 @@ while not done:
     screen.fill(WHITE)
 
      # Adjust the part where the Tetris board is drawn
+     # Adjust the part where the Tetris board is drawn
     for i in range(game.height):
         for j in range(game.width):
             pygame.draw.rect(screen, GRAY, [game.x + game.zoom * j, game.y + game.zoom * i, game.zoom, game.zoom], 1)
@@ -223,7 +222,7 @@ while not done:
                                      [game.x + game.zoom * (j + game.figure.x) + 1,
                                       game.y + game.zoom * (i + game.figure.y) + 1,
                                       game.zoom - 2, game.zoom - 2])
-
+                    
     font = pygame.font.SysFont('Calibri', 25, True, False)
     font1 = pygame.font.SysFont('Calibri', 65, True, False)
     text = font.render("Score: " + str(game.score), True, BLACK)
