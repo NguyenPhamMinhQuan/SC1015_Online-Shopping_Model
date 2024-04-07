@@ -32,6 +32,7 @@ class Figure:
         self.type = random.randint(0, len(self.figures) - 1)
         self.color = random.randint(1, len(colors) - 1)
         self.rotation = 0
+        self.tetris_board = [[0] * width for _ in range(height)] # added
 
     def image(self):
         return self.figures[self.type][self.rotation]
@@ -75,7 +76,7 @@ class Tetris:
     def new_figure(self):
         self.figure = Figure(3, 0)
 
-    def intersects(self):
+     def intersects(self):
         intersection = False
         for i in range(4):
             for j in range(4):
@@ -83,7 +84,7 @@ class Tetris:
                     if i + self.figure.y > self.height - 1 or \
                             j + self.figure.x > self.width - 1 or \
                             j + self.figure.x < 0 or \
-                            self.field[i + self.figure.y][j + self.figure.x] > 0:
+                            self.tetris_board[i + self.figure.y][j + self.figure.x] > 0:  # Check Tetris board instead of self.field
                         intersection = True
         return intersection
 
@@ -124,7 +125,7 @@ class Tetris:
         for i in range(4):
             for j in range(4):
                 if i * 4 + j in self.figure.image():
-                    self.field[i + self.figure.y][j + self.figure.x] = self.figure.color
+                    self.tetris_board[i + self.figure.y][j + self.figure.x] = self.figure.color  # Update Tetris board instead of self.field
         self.break_lines()
         self.state = "gameover"
 
@@ -197,13 +198,15 @@ while not done:
 
     screen.fill(WHITE)
 
+     # Adjust the part where the Tetris board is drawn
     for i in range(game.height):
         for j in range(game.width):
             pygame.draw.rect(screen, GRAY, [game.x + game.zoom * j, game.y + game.zoom * i, game.zoom, game.zoom], 1)
-            if game.field[i][j] > 0:
-                pygame.draw.rect(screen, colors[game.field[i][j]],
-                                 [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
+            if game.tetris_board[i][j] > 0:
+                pygame.draw.rect(screen, colors[game.tetris_board[i][j]],
+                                 [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 2])
 
+    # Existing code...
     if game.figure is not None:
         for i in range(4):
             for j in range(4):
