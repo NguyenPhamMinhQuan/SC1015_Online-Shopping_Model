@@ -82,20 +82,20 @@ class Tetris:
         return intersection
 
    def break_lines(self):
-    lines = 0
-    for i in range(1, self.height):
-        zeros = 0
-        for j in range(self.width):
-            if self.field[i][j] == 0:
-                zeros += 1
-        if zeros == 0:
-            lines += 1
-            # Shift all rows above the cleared row downwards
-            for i1 in range(i, 0, -1):
-                for j in range(self.width):
-                    self.field[i1][j] = self.field[i1 - 1][j]
-    self.score += lines ** 2
-    self.figure = None
+        lines = 0
+        for i in range(1, self.height):
+            zeros = 0
+            for j in range(self.width):
+                if self.field[i][j] == 0:
+                    zeros += 1
+            if zeros == 0:
+                lines += 1
+                # Shift all rows above the cleared row downwards
+                for i1 in range(i, 0, -1):
+                    for j in range(self.width):
+                        self.field[i1][j] = self.field[i1 - 1][j]
+        self.score += lines ** 2
+        self.figure = None
 
 
     def go_space(self):
