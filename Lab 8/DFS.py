@@ -30,6 +30,7 @@ class Figure:
         self.x = x
         self.y = y
         self.type = random.randint(0, len(self.figures) - 1)
+        self.color = random.randint(1, len(colors) - 1)
         self.rotation = 0
 
     def image(self):
@@ -51,11 +52,14 @@ class Tetris:
         self.y = 60
         self.zoom = 20
         self.figure = None
-
+    
+        self.height = height
+        self.width = width
+        
         # setting the initial line
         initial_blocks = [
             [1, 1, 1, 1, 1, 0, 0, 1, 1, 1],
-            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1],  # Example pattern, customize as needed
+            [1, 1, 1, 1, 1, 0, 1, 1, 1, 1], # Example pattern, customize as needed
             # Add more patterns as needed
         ]
 
@@ -66,6 +70,8 @@ class Tetris:
         for row_index, row in enumerate(initial_blocks):
             self.field[height - len(initial_blocks) + row_index] = row
 
+    
+    
     def new_figure(self):
         self.figure = Figure(3, 0)
 
@@ -81,6 +87,7 @@ class Tetris:
                         intersection = True
         return intersection
 
+
     def break_lines(self):
         lines = 0
         for i in range(1, self.height):
@@ -91,12 +98,15 @@ class Tetris:
             if zeros == 0:
                 lines += 1
                 # Shift all rows above the cleared row downwards
-                for i1 in range(i, 0, -1):
+                for i1 in range(i, 0, -1):  # Changed the range to include row 0
                     for j in range(self.width):
-                        self.field[i1][j] = self.field[i1 - 1][j]
+                        if i1 == 1:  # Skip the row with the newly added block
+                            self.field[i1][j] = 0
+                        else:
+                            self.field[i1][j] = self.field[i1 - 1][j]
         self.score += lines ** 2
-        self.figure = None
-
+        self.figure = Figure(0,0)
+    
 
     def go_space(self):
         while not self.intersects():
@@ -112,61 +122,3 @@ class Tetris:
 
     def freeze(self):
         for i in range(4):
-            for j in range(4):
-                if i * 4 + j in self.figure.image():
-                    self.field[i + self.figure.y][j + self.figure.x] = 1
-        self.break_lines()
-        self.state = "gameover"
-
-    def go_side(self, dx):
-        old_x = self.figure.x
-        self.figure.x += dx
-        if self.intersects():
-            self.figure.x = old_x
-
-    def rotate(self):
-        old_rotation = self.figure.rotation
-        self.figure.rotate()
-        if self.intersects():
-            self.figure.rotation = old_rotation
-
-    def evaluate_placement(self, col, rotation, row):
-        # Simulate placing two consecutive blocks and evaluate the resulting grid state
-        grid_state = [row[:] for row in self.field]
-        
-        # Apply the first block to the grid state
-        new_grid_state = self.apply_block_to_grid(grid_state, col, rotation)
-
-        # Calculate the score based on the resulting grid state
-        score = self.calculate_score(new_grid_state)
-
-        return score
-
-    def apply_block_to_grid(self, grid_state, col, rotation):
-        # Apply the first block to the grid state
-        new_grid_state = [row[:] for row in grid_state]
-        block_image = self.figure.image()
-        for i in range(4):
-            for j in range(4):
-                if i * 4 + j in block_image:
-                    if self.figure.y + i >= self.height or col + j >= self.width:
-                        # Block placement is out of bounds, skip it
-                        continue
-                    new_grid_state[self.figure.y + i][col + j] = 1  # Mark the cell as occupied by the block
-        return new_grid_state
-
-    def calculate_score(self, grid_state):
-        # Calculate the score based on the resulting grid state
-        # For simplicity, let's count the number of filled cells in the bottom row
-        bottom_row = grid_state[-1]
-        score = sum(bottom_row)
-        return score
-
-
-# Initialize the game engine
-pygame.init()
-
-# Define some colours
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GRAY = (128, 128, 128)
