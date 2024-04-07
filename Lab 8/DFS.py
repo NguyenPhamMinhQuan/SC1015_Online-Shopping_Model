@@ -81,7 +81,7 @@ class Tetris:
                         intersection = True
         return intersection
 
-   def break_lines(self):
+    def break_lines(self):
         lines = 0
         for i in range(1, self.height):
             zeros = 0
