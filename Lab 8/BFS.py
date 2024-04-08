@@ -24,7 +24,7 @@ graph = {
     '2,0' : ['1,1','2,1'] ,  #[going left , going down]
     #under left 
     '1,1' : ['3,1','1,2'], #[rotate,going down]
-    #under rotatnin¥e
+    #under rotate
     '3,1' : ['3,2'] ,
     '3,2' : ['3,3'] ,
     #under going down
@@ -56,8 +56,9 @@ def bfs(visited, graph, node): #function for BFS
         print ("({item})".format(item = m), end = " ") 
 
         for neighbour in graph[m]:
-            visited.append(neighbour)
-            queue.append(neighbour)
+            if neighbour not in visited : 
+                visited.append(neighbour)
+                queue.append(neighbour)
 
 
 # Driver Code
