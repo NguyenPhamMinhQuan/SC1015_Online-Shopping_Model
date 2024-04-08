@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/dana/Downloads/School/SC1007/Lab/Lab8_ForStudents(2)",
+      "program": "/Users/dana/Downloads/School/SC1007/Lab/Lab8_ForStudents(2)/build/Debug/outDebug"
+    }
+  ]
+}

@@ -24,7 +24,7 @@ graph = {
     '2,0' : ['1,1','2,1'] ,  #[going left , going down]
     #under left 
     '1,1' : ['3,1','1,2'], #[rotate,going down]
-    #under rotate
+    #under rotatnin¥e
     '3,1' : ['3,2'] ,
     '3,2' : ['3,3'] ,
     #under going down

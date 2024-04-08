@@ -82,8 +82,8 @@ class Tetris:
                 if i * 4 + j in self.figure.image():
                     if i + self.figure.y > self.height - 1 or \
                             j + self.figure.x > self.width - 1 or \
-                            j + self.figure.x < 0 or \
-                            self.field[i + self.figure.y][j + self.figure.x] > 0:
+                            j + self.figure.x  0 or \
+                            self.field[i + self.figure.y][j + self.figure.x]  0:
                         intersection = True
         return intersection
 
