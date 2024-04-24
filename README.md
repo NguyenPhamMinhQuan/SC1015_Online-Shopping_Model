@@ -39,7 +39,7 @@ In order to not lose information about previous actions, we append a new variabl
 We then export Cart and Purchase event data only due to us unable to process the large amount of data had View events been included
 
 #### 2. Data Mining and Visualization:
-We perform exploratory data analysis on 9 varibles and their relationship with the event type to examine which variable is a good predictors for a purchase of cart item, namely:
+We perform exploratory data analysis on 9 varibles and examine their relationship with the event type to identify which variable is a good predictors for a purchase of cart item, namely:
 
 1. Category of the product
 2. Sub-category of the product (since this information is provided in our dataset).
