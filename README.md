@@ -34,7 +34,8 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 
 ## Data Cleaning, Mining and Visualization
 #### 1. Data Cleaning:
-We clean source data by removing all data rows with missing values. We then format the data such that every row entry represents a user interaction with one product in one particular user session. The event type is set to be the highest event possible (view(0), cart(1), or purchase(2), in that order) for that iteractions. In order to not lose information about previous actions, we append a new variable called activity_count which is the number of acitivities a users made during one particular session. Finally, we append user_session_count which indicate how many time the user have accessed the online shopping flatform before (a form of user's history).
+We clean source data by removing all data rows with missing values. We then format the data such that every row entry represents a user interaction with one product in one particular user session. The event type is set to be the highest event possible (view(0), cart(1), or purchase(2), in that order) for that iteractions.\
+In order to not lose information about previous actions, we append a new variable called activity_count which is the number of acitivities a users made during one particular session. Finally, we append user_session_count which indicate how many time the user have accessed the online shopping flatform before (a form of user's history).\
 We then export Cart and Purchase event data only due to us unable to process the large amount of data had View events been included
 
 #### 2. Data Mining and Visualization:
