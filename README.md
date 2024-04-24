@@ -67,13 +67,17 @@ All our model is an extension to the classification tree using ensemble
 ## References
 
 - <https://www.kaggle.com/code/tshephisho/ecommerce-behaviour-using-xgboost/input>
-- 
-- <https://www.free-powerpoint-templates-design.com/old-style-movie-projector-powerpoint-templates/>
-- <https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets>
-- <https://alexlenail.me/NN-SVG/index.html>
-- <https://www.kdnuggets.com/2016/08/learning-from-imbalanced-classes.html/2>
-- <https://arxiv.org/pdf/1608.06048.pdf>
-- <https://machinelearningmastery.com/tutorial-first-neural-network-python-keras/>
-- <https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e>
-- <https://www.researchgate.net/figure/Calculation-of-Precision-Recall-and-Accuracy-in-the-confusion-matrix_fig3_336402347>
-- <https://medium.com/analytics-vidhya/confusion-matrix-accuracy-precision-recall-f1-score-ade299cf63cd>
+- <https://slidesgo.com/theme/minimalist-business-slides#search-simple&position-6&results-3926&rs=search>
+- <https://www.markdownguide.org/cheat-sheet/>
+- <https://docs.github.com/en/repositories>
+- <https://pandas.pydata.org/docs/reference/index.html>
+- <https://numpy.org/doc/>
+- <https://xgboost.readthedocs.io/en/stable/>
+- <https://scikit-learn.org/stable/>
+- <https://matplotlib.org/stable/index.html>
+- <https://seaborn.pydata.org/>
+- <https://towardsdatascience.com/ensemble-learning-bagging-boosting-3098079e5422>
+- <https://medium.com/@thedatabeast/adaboost-gradient-boosting-xg-boost-similarities-differences-516874d644c6>
+- <https://arxiv.org/pdf/2106.03253.pdf>
+- <https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/>
+- <https://docs.dask.org/en/stable/>
