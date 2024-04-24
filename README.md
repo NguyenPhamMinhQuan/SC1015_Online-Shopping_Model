@@ -1,4 +1,4 @@
-# Welcome to Online-Shopping Model Repository
+# Welcome to rhe Online-Shopping Model Repository!
 
 ## About
 
@@ -6,6 +6,8 @@ This is a Mini-Project for SC1015 (Introduction to Data Science and Artificial I
 Source data retrieved from [eCommerce behavior data from multi category store by MICHAEL KECHINOV](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)
 
 For more details on datasets, please view: [The Dataset Collections](https://github.com/NguyenPhamMinhQuan/SC1015_Online-Shopping_Model/blob/main/Dataset.md). 
+
+## Table of Content
 
 For detailed walkthrough of the code, please view the notebooks for each step of our analysis and the conclusion at the end of the final notebook. The notebook are as follow (please read them in order):
 1. [Data Cleaning](https://github.com/NguyenPhamMinhQuan/SC1015_Online-Shopping_Model/blob/main/Data_Cleaning.ipynb)
@@ -17,7 +19,7 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 ## Contributors
 
 - @NguyenPhamMinhQuan
-- @dynyk7
+- @dnyk7
 - @Jwong611
 
 ## Problem Definition
