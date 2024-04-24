@@ -70,17 +70,17 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 #### 1. Classification Tree
 <div align="justify">A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase'].</div>
 <div align="justify">We iterate through 20 of them to find the optimal depth of tree.</div>
-<div align="justify">Finally we achieve a **best accuracy of 62.46% at depth 19**.</div>
+<div align="justify">Finally we achieve a best accuracy of 62.46% at depth 19.</div>
 
 #### 2. Random Forest Classification
 <div align="justify">We seek to improve the classification Tree using a Random Forest Classifier. We build a model of 100 trees, each consider 2 random predictors among the 6.</div>
-<div align="justify">The result, however, was lacking. We iterate through 10 Random Forest Classifiers (which take a very long time) and found that the **best accuracy achieved was 63.04% at depth 16**.</div>
+<div align="justify">The result, however, was lacking. We iterate through 10 Random Forest Classifiers (which take a very long time) and found that the best accuracy achieved was 63.04% at depth 16.</div>
 <div align="justify">This lack of improvement can be attributed to the lack of overfitting problem in our classification tree and the relatively low variance in our sample (the 2 problems that Random Forest was designed to improve).</div>
-<div align="justify">The lack of improvement and high computational cost make **Random Forest Classifier a bad model for our problem**.</div>
+<div align="justify">The lack of improvement and high computational cost make Random Forest Classifier a bad model for our problem.</div>
 
 #### 3. Extreme Gradient Boost (XGBoost) Classification
 <div align="justify">To further improve our model, we try using the Boosting method, namely: XGBoost classifier.</div>
-<div align="justify">We observe that the model is more accurate (**63.70% accuracy**) and **took far less time to train and test** compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple sampling)</div>
+<div align="justify">We observe that the model is more accurate (63.70% accuracy) and took far less time to train and test compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple repetition of XGBoost Classifier with n_estimators =100, 500, 1000,2000,5000,10000 respectively)</div>
 <div align="justify">However, there were room for improvement as we could have better tune our hyperparameters using cross-validation. However, literature review show that tuning of hyperparameters rarely significantly improve the accuracy.</div>
 
 ## Conclusion
