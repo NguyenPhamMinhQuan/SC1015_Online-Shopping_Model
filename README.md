@@ -65,7 +65,8 @@ We will use these 6 predictors to build and train our classification models.
 ## Classification Models:
 We used 3 classification models, all based on classification trees:
 
-1. Classification Tree
+#### 1. Classification Tree
+A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase']
 2. Random Forest Classification
 3. Extream Gradient Boost (XGBoost) Classification
 
@@ -86,13 +87,13 @@ All our model is an extension to the classification tree using ensemble
 
 ## What did we learn from this project?
 
-- Memory handling
-- Neural Networks, Keras and Tensorflow
-- Logistic Regression from sklearn
-- API Usage
-- Other packages such as tqdm, json, requests
+- Memory handling: StackOverflow, Del, and inplace=True
+- Ensemble Modelling: Bagging and Boosting
+- Tuning Hyperparameters with GridSearch
+- Extreme Gradient Boost (XGBoost) Classifier
+- Tuning of XGBoost using cross-validation (cv)
+- Concepts of F-score and Feature Performance analysis (based on 'gain')
 - Collaborating using GitHub
-- Concepts about Precision, Recall, and F1 Score
 
 
 ## References
@@ -112,3 +113,4 @@ All our model is an extension to the classification tree using ensemble
 - <https://arxiv.org/pdf/2106.03253.pdf>
 - <https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/>
 - <https://docs.dask.org/en/stable/>
+- <https://www.sciencedirect.com/topics/computer-science/ensemble-modeling>
