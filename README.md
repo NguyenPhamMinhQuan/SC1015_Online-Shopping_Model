@@ -14,9 +14,9 @@ This is a Mini-Project for SC1015 (Introduction to Data Science and Artificial I
   
 ## Contributors
 
-- @nicklimmm - Neural Networks, Data Resampling, Data Extraction
-- @TCaken - Logistic Regression
-- @coolcoolwhat - Data Visualization, Data Extraction
+- @NguyenPhamMinhQuan
+- @dynak7
+- @jwong8
 
 ## Problem Definition
 
