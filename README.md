@@ -66,23 +66,36 @@ We will use these 6 predictors to build and train our classification models.
 We used 3 classification models, all based on classification trees:
 
 #### 1. Classification Tree
-A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase']
-2. Random Forest Classification
-3. Extream Gradient Boost (XGBoost) Classification
+A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase'].\
+We iterate through 20 of them to find the optimal depth of tree.\
+Finally we achieve a **best accuracy of 62.46% at depth 19**.
 
-All our model is an extension to the classification tree using ensemble 
+#### 2. Random Forest Classification
+We seek to improve the classification Tree using a Random Forest Classifier. We build a model of 100 trees, each consider 2 random predictors among the 6.\
+The result, however, was lacking. We iterate through 10 Random Forest Classifiers (which take a very long time) and found that the **best accuracy achieved was 63.04% at depth 16**.\
+This lack of improvement can be attributed to the lack of overfitting problem in our classification tree and the relatively low variance in our sample (the 2 problems that Random Forest was designed to improve).\
+The lack of improvement and high computational cost make **Random Forest Classifier a bad model for our problem**.
 
+#### 3. Extreme Gradient Boost (XGBoost) Classification
+To further improve our model, we try using the Boosting method, namely: XGBoost classifier.\
+We observe that the model is more accurate (**63.70% accuracy**) and **took far less time to train and test** compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple sampling)\
+However, there were room for improvement as we could have better tune our hyperparameters using cross-validation. However, literature review show that tuning of hyperparameters rarely significantly improve the accuracy.
 
 ## Conclusion
-
+#### Project outcome and Insights:
 - There is a limit to classification accuracy using classification tree, regardless of the depth
-- 
-- Number of acitivities in a session (how active a user is on the online shopping platform) is the best predictor for purchases of cart items.
-- Surprisingly, day of the 
-- Resampling imbalanced data improved model performance especially on the minority class
-- Logistic Regression did not perform well with non-linearly correlated variables
-- Neural Networks along with SMOTEENN resampling method consistently did well in predicting good movies after 100 training attempts (around 72% accuracy, 70% recall)
-- Yes, it is possible to predict if a movie is good with acceptable amount of accuracy and recall
+- Thus, in order to enhance our model, we need to adopt a different algorithm or engineer better predictors (features)
+- Number of acitivities in a session (how active a user is on the online shopping platform) is the best predictor for purchases of cart items. This is because the longer and more items users see and interacts, the more likely they will think about buying something, resulting in an eventual purchase.
+- Surprisingly, day of the week (Mon-Fri) is also a good predictor. However, we cannot deduce a logical reason behind this due to limited information on the online shopping platform. This could have been due to customer demographic characteristics or a particular pattern in the shop operations (such as offering sales on Sunday-Monday)
+- Price, brand, and user's familiarity (or history) with the platform do not contribute significantly to the prediction of purchases of cart items. This is because once an item is in cart, user's will no longer consider these variables as important considerations.
+- XGBoost is one of the most efficient model to date and is the most suitable for building model on tabular data such as online shopping data.
+- Yes, it is possible to predict customers' behaviours using machine learning with sufficient accuracy. Online shopping platform should employ machine learning model to boost their revenue.
+
+#### Limitations and Future Directions
+- Explore and classify the view-to-cart process. View represents 94% of activities on the platform and thus, being able to convert a small amount of views into cart or purchase will boost sale of the platform significantly.
+- Scale our project by employing Dask to read and work on larger data files.
+- Perform cross-validation and tuning for all models
+- Engineer more features to examine such as BounceRate, Promotion and Sale, etc. given more data available.
 
 
 ## What did we learn from this project?
