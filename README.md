@@ -92,10 +92,11 @@ However, there were room for improvement as we could have better tune our hyperp
 - Yes, it is possible to predict customers' behaviours using machine learning with sufficient accuracy. Online shopping platform should employ machine learning model to boost their revenue.
 
 #### Limitations and Future Directions
-- Explore and classify the view-to-cart process. View represents 94% of activities on the platform and thus, being able to convert a small amount of views into cart or purchase will boost sale of the platform significantly.
+- Explore and classify the view-to-cart process. View represents 94% of activities on the platform and thus, being able to convert a small amount of views into cart or purchase will boost sale of the platform significantly. XGBoost can be applied to build a multi-class classifier without having to consider One-vs-Rest classifier approach.
 - Scale our project by employing Dask to read and work on larger data files.
 - Perform cross-validation and tuning for all models
 - Engineer more features to examine such as BounceRate, Promotion and Sale, etc. given more data available.
+
 
 
 ## What did we learn from this project?
@@ -127,3 +128,4 @@ However, there were room for improvement as we could have better tune our hyperp
 - <https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/>
 - <https://docs.dask.org/en/stable/>
 - <https://www.sciencedirect.com/topics/computer-science/ensemble-modeling>
+- <https://towardsdatascience.com/machine-learning-multiclass-classification-with-imbalanced-data-set-29f6a177c1a>
