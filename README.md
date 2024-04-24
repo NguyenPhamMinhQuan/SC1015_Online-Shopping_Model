@@ -80,7 +80,9 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 
 #### 3. Extreme Gradient Boost (XGBoost) Classification
 <div align="justify">To further improve our model, we try using the Boosting method, namely: XGBoost classifier.</div>
+
 <div align="justify">We observe that the model is more accurate (63.70% accuracy) and took far less time to train and test compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple repetition of XGBoost Classifier with n_estimators =100, 500, 1000,2000,5000,10000 respectively)</div>
+
 <div align="justify">However, there were room for improvement as we could have better tune our hyperparameters using cross-validation. However, literature review show that tuning of hyperparameters rarely significantly improve the accuracy.</div>
 
 ## Conclusion
