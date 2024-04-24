@@ -32,7 +32,37 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 - Which model would be the best to predict it?
 
 
-## Models Used
+## Data Cleaning, Mining and Visualization
+#### 1. Data Cleaning:
+We clean source data by removing all data rows with missing values. We then format the data such that every row entry represents a user interaction with one product in one particular user session. The event type is set to be the highest event possible (view(0), cart(1), or purchase(2), in that order) for that iteractions. In order to not lose information about previous actions, we append a new variable called activity_count which is the number of acitivities a users made during one particular session. Finally, we append user_session_count which indicate how many time the user have accessed the online shopping flatform before (a form of user's history).
+We then export Cart and Purchase event data only due to us unable to process the large amount of data had View events been included
+
+#### 2. Data Mining and Visualization:
+We perform exploratory data analysis on 9 varibles and their relationship with the event type to examine which variable is a good predictors for a purchase of cart item, namely:
+
+1. Category of the product
+2. Sub-category of the product (since this information is provided in our dataset).
+3. Weekday: weekday of the event
+4. Day of month: Date of event
+5. Time period of the event: Morning (6am -2pm), Afternoon(2pm - 10pm) and Night(10pm - 6am)
+6. User access history: Number of sessions accessed by user before this event. This show customer's loyalty or familiarity with the online shop.
+7. Activity count: Number of activities user engage in in one session.
+8. Brand of product
+9. Price of product
+
+Among the 9 variables, only 6 shown to be good or adequate predictors of the event type variable:
+
+1. Weekday: weekday of the event
+2. Day of month: Date of event
+3. User access history: Number of sessions accessed by user before this event. This show customer's loyalty or familiarity with the online shop.
+4. Activity count: Number of activities user engage in in one session.
+5. Brand of product
+6. Price of product
+
+We will use these 6 predictors to build and train our classification models.
+
+## Classification Models:
+We used 3 classification models, all based on classification trees:
 
 1. Classification Tree
 2. Random Forest Classification
