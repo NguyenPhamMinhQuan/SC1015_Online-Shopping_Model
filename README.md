@@ -34,12 +34,14 @@ For detailed walkthrough of the code, please view the notebooks for each step of
 
 ## Data Cleaning, Mining and Visualization
 #### 1. Data Cleaning:
-<div align="justify">We clean source data by removing all data rows with missing values. We then format the data such that every row entry represents a user interaction with one product in one particular user session. The event type is set to be the highest event possible (view(0), cart(1), or purchase(2), in that order) for that iteractions.\
-In order to not lose information about previous actions, we append a new variable called activity_count which is the number of acitivities a users made during one particular session. Finally, we append user_session_count which indicate how many time the user have accessed the online shopping flatform before (a form of user's history).\
-We then export Cart and Purchase event data only due to us unable to process the large amount of data had View events been included</div>
+<div align="justify">We clean source data by removing all data rows with missing values. We then format the data such that every row entry represents a user interaction with one product in one particular user session. The event type is set to be the highest event possible (view(0), cart(1), or purchase(2), in that order) for that iteractions.</div>
+
+<div align="justify">In order to not lose information about previous actions, we append a new variable called activity_count which is the number of acitivities a users made during one particular session. Finally, we append user_session_count which indicate how many time the user have accessed the online shopping flatform before (a form of user's history).</div>
+
+<div align="justify">We then export Cart and Purchase event data only due to us unable to process the large amount of data had View events been included.</div>
 
 #### 2. Data Mining and Visualization:
-We perform exploratory data analysis on 9 varibles and examine their relationship with the event type to identify which variable is a good predictors for a purchase of cart item, namely:
+<div align="justify">We perform exploratory data analysis on 9 varibles and examine their relationship with the event type to identify which variable is a good predictors for a purchase of cart item, namely:</div>
 
 1. Category of the product
 2. Sub-category of the product (since this information is provided in our dataset).
@@ -51,7 +53,7 @@ We perform exploratory data analysis on 9 varibles and examine their relationshi
 8. Brand of product
 9. Price of product
 
-Among the 9 variables, only 6 shown to be good or adequate predictors of the event type variable:
+<div align="justify">Among the 9 variables, only 6 shown to be good or adequate predictors of the event type variable:</div>
 
 1. Weekday: weekday of the event
 2. Day of month: Date of event
@@ -60,26 +62,26 @@ Among the 9 variables, only 6 shown to be good or adequate predictors of the eve
 5. Brand of product
 6. Price of product
 
-We will use these 6 predictors to build and train our classification models.
+<div align="justify">We will use these 6 predictors to build and train our classification models.</div>
 
 ## Classification Models:
-We used 3 classification models, all based on classification trees:
+<div align="justify">We used 3 classification models, all based on classification trees:</div>
 
 #### 1. Classification Tree
-A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase'].\
-We iterate through 20 of them to find the optimal depth of tree.\
-Finally we achieve a **best accuracy of 62.46% at depth 19**.
+<div align="justify">A simple binary classification tree based on 6 predictors to predict event_type =['cart','purchase'].</div>
+<div align="justify">We iterate through 20 of them to find the optimal depth of tree.</div>
+<div align="justify">Finally we achieve a **best accuracy of 62.46% at depth 19**.</div>
 
 #### 2. Random Forest Classification
-We seek to improve the classification Tree using a Random Forest Classifier. We build a model of 100 trees, each consider 2 random predictors among the 6.\
-The result, however, was lacking. We iterate through 10 Random Forest Classifiers (which take a very long time) and found that the **best accuracy achieved was 63.04% at depth 16**.\
-This lack of improvement can be attributed to the lack of overfitting problem in our classification tree and the relatively low variance in our sample (the 2 problems that Random Forest was designed to improve).\
-The lack of improvement and high computational cost make **Random Forest Classifier a bad model for our problem**.
+<div align="justify">We seek to improve the classification Tree using a Random Forest Classifier. We build a model of 100 trees, each consider 2 random predictors among the 6.</div>
+<div align="justify">The result, however, was lacking. We iterate through 10 Random Forest Classifiers (which take a very long time) and found that the **best accuracy achieved was 63.04% at depth 16**.</div>
+<div align="justify">This lack of improvement can be attributed to the lack of overfitting problem in our classification tree and the relatively low variance in our sample (the 2 problems that Random Forest was designed to improve).</div>
+<div align="justify">The lack of improvement and high computational cost make **Random Forest Classifier a bad model for our problem**.</div>
 
 #### 3. Extreme Gradient Boost (XGBoost) Classification
-To further improve our model, we try using the Boosting method, namely: XGBoost classifier.\
-We observe that the model is more accurate (**63.70% accuracy**) and **took far less time to train and test** compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple sampling)\
-However, there were room for improvement as we could have better tune our hyperparameters using cross-validation. However, literature review show that tuning of hyperparameters rarely significantly improve the accuracy.
+<div align="justify">To further improve our model, we try using the Boosting method, namely: XGBoost classifier.</div>
+<div align="justify">We observe that the model is more accurate (**63.70% accuracy**) and **took far less time to train and test** compared to the previous 2 models. We also observe that while we can increase the number of estimators (decision trees) used, the optimal is achieved at 1000. (This observation is made from a simple sampling)</div>
+<div align="justify">However, there were room for improvement as we could have better tune our hyperparameters using cross-validation. However, literature review show that tuning of hyperparameters rarely significantly improve the accuracy.</div>
 
 ## Conclusion
 #### Project outcome and Insights:
